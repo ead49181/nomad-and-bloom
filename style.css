@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Raleway:wght@300;400&family=Cormorant+Garamond:ital@1&display=swap');
+
+:root {
+  --color-primary: #C9A96E;    /* warm sand gold */
+  --color-secondary: #7D9B76;  /* sage green */
+  --color-accent: #C1603A;     /* terracotta */
+  --color-background: #F5EFE6; /* cream linen */
+  --color-text: #2F2A23;       /* deep espresso */
+  --max-width: 1400px;
+  --extra-light: #F5EFE6;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+blockquote, .tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ── SECTION ── */
+.section__container {
+  padding: 5rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section__subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--color-secondary);
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 1.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(245, 239, 230, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 15px rgba(47, 42, 35, 0.08);
+  transition: 0.3s ease;
+}
+
+.nav__logo a {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+.nav__links {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.link a {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-primary);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: 0.3s ease;
+}
+
+.link a:hover {
+  color: var(--extra-light);
+}
+
+/* ── HEADER ── */
+header {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    rgba(201, 169, 110, 0.4),
+    rgba(47, 42, 35, 0.7)
+  ),
+  url("images/jordan.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .section__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.header__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 3rem;
+  color: #F5EFE6;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.header__content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.05em;
+  color: #F5EFE6;
+}
+
+.header__content p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #F5EFE6;
+  line-height: 2.2;
+  letter-spacing: 0.03em;
+  text-align: center;
+  max-width: 700px;
+}
+
+.header__content .btn {
+  padding: 1.2rem 3rem;
+  outline: none;
+  border: 2px solid #F5EFE6;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #F5EFE6;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 1rem;
+}
+
+.header__content .btn:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* ── JOURNEY GRID ── */
+.journey__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.country__card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  aspect-ratio: 3 / 4;
+}
+
+.country__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.country__card:hover img {
+  transform: scale(1.08);
+}
+
+.country__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 3rem 1rem 3.5rem;
+  background: linear-gradient(
+    transparent,
+    rgba(47, 42, 35, 0.85)
+  );
+  color: var(--extra-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.country__card:hover .country__overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.country__name {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  color: var(--extra-light);
+  gap: 0.3rem;
+}
+
+.country__name span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.country__name i {
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+
+.country__desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.75rem;
+  color: var(--extra-light);
+  opacity: 0.85;
+  margin-top: 0.2rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  background-color: var(--color-text);
+  color: var(--extra-light);
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+footer h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+footer p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+
+.social__icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+.social__icons span {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.social__icons span:hover {
+  color: var(--extra-light);
+}
+
+/* ── MEDIA QUERIES ── */
+@media (max-width: 900px) {
+  .journey__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .journey__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .header__content h1 {
+    font-size: 2.5rem;
+  }
+
+  nav {
+    padding: 1rem 1.5rem;
+  }
+
+  .nav__links {
+    display: none;
+  }
+}
