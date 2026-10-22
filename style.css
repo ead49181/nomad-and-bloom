@@ -205,6 +205,13 @@ header .section__container {
   aspect-ratio: 3 / 4;
 }
 
+/* Tahiti card stretches to match the height of the text card beside it */
+.country__card--tall {
+  aspect-ratio: auto;
+  align-self: stretch;
+  min-height: 420px;
+}
+
 .country__card img {
   border: 3px solid var(--color-primary);
   border-radius: 10px;
@@ -268,8 +275,49 @@ header .section__container {
   margin-top: 0.2rem;
 }
 
-/* ── TEXT SECTIONS (WHY / INCLUDED) ── */
-.why__container,
+/* ── WHY TRAVEL WITH US (BESIDE TAHITI) ── */
+.why__card {
+  grid-column: span 2;
+  align-self: stretch;
+  background-color: #FBF8F3;
+  border-radius: 10px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 4px 20px rgba(47, 42, 35, 0.1);
+}
+
+.why__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.why__card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.why__card ul {
+  margin: 0 0 1rem 1.5rem;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.why__card li::marker {
+  color: var(--color-accent);
+}
+
+.why__card a {
+  color: var(--color-accent);
+  font-weight: 400;
+}
+
+.why__card a:hover {
+  color: var(--color-secondary);
+}
+
+/* ── TEXT SECTIONS (OFFERS) ── */
 .included__container {
   background-color: #FBF8F3;
 }
@@ -373,12 +421,33 @@ footer p {
   .offers__grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Tahiti spans the full row, then the text card sits below it */
+  .country__card--tall {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+
+  .why__card {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 600px) {
   .journey__grid,
   .offers__grid {
     grid-template-columns: 1fr;
+  }
+
+  .country__card--tall {
+    grid-column: auto;
+    aspect-ratio: 3 / 4;
+  }
+
+  .why__card {
+    grid-column: auto;
+    padding: 1.5rem;
   }
 
   .section__container {
