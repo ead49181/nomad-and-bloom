@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Raleway:wght@300;400&family=Cormorant+Garamond:ital@1&display=swap');
-
 :root {
   --color-primary: #C9A96E;    /* warm sand gold */
   --color-secondary: #7D9B76;  /* sage green */
@@ -32,11 +30,6 @@ h1, h2, h3 {
   font-family: 'Playfair Display', serif;
 }
 
-blockquote, .tagline {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-}
-
 img {
   max-width: 100%;
 }
@@ -44,14 +37,14 @@ img {
 /* ── SECTION ── */
 .section__container {
   padding: 5rem 4rem;
-  max-width: 1400px;
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 
 .section__title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-accent);
   margin-bottom: 1rem;
   text-align: center;
 }
@@ -78,7 +71,6 @@ nav {
   background-color: rgba(245, 239, 230, 0.92);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 15px rgba(47, 42, 35, 0.08);
-  transition: 0.3s ease;
 }
 
 .nav__logo a {
@@ -109,7 +101,7 @@ nav {
 }
 
 .link a:hover {
-  color: var(--extra-light);
+  color: var(--color-accent);
 }
 
 /* ── HEADER ── */
@@ -127,6 +119,15 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+header.page__header {
+  min-height: 70vh;
+  background-image: linear-gradient(
+    rgba(201, 169, 110, 0.4),
+    rgba(47, 42, 35, 0.7)
+  ),
+  url("images/tahiti.jpg");
 }
 
 header .section__container {
@@ -150,7 +151,6 @@ header .section__container {
 }
 
 .header__content h1 {
-  font-family: 'Playfair Display', serif;
   font-size: 4.5rem;
   font-weight: 700;
   line-height: 1.3;
@@ -159,7 +159,6 @@ header .section__container {
 }
 
 .header__content p {
-  font-family: 'Raleway', sans-serif;
   font-size: 1.1rem;
   font-weight: 300;
   color: #F5EFE6;
@@ -170,17 +169,16 @@ header .section__container {
 }
 
 .header__content .btn {
+  display: inline-block;
   padding: 1.2rem 3rem;
-  outline: none;
   border: 2px solid #F5EFE6;
   border-radius: 5px;
   background-color: transparent;
   color: #F5EFE6;
-  font-family: 'Raleway', sans-serif;
   font-size: 1rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  cursor: pointer;
+  text-decoration: none;
   transition: 0.3s ease;
   margin-top: 1rem;
 }
@@ -190,7 +188,7 @@ header .section__container {
   border-color: var(--color-primary);
 }
 
-/* ── JOURNEY GRID ── */
+/* ── JOURNEY GRID (HOME) ── */
 .journey__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -204,11 +202,12 @@ header .section__container {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  cursor: pointer;
   aspect-ratio: 3 / 4;
 }
 
 .country__card img {
+  border: 3px solid var(--color-primary);
+  border-radius: 10px;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -260,11 +259,6 @@ header .section__container {
   font-weight: 700;
 }
 
-.country__name i {
-  font-size: 1rem;
-  color: var(--color-primary);
-}
-
 .country__desc {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
@@ -272,6 +266,83 @@ header .section__container {
   color: var(--extra-light);
   opacity: 0.85;
   margin-top: 0.2rem;
+}
+
+/* ── TEXT SECTIONS (WHY / INCLUDED) ── */
+.why__container,
+.included__container {
+  background-color: #FBF8F3;
+}
+
+.why__content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.why__content p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+
+.why__content ul {
+  margin: 0 0 1.5rem 1.5rem;
+  line-height: 2;
+  font-size: 1.05rem;
+}
+
+.why__content li::marker {
+  color: var(--color-accent);
+}
+
+.why__content a {
+  color: var(--color-accent);
+  font-weight: 400;
+}
+
+.why__content a:hover {
+  color: var(--color-secondary);
+}
+
+/* ── OFFERS GRID ── */
+.offers__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.offer__card {
+  background-color: #FBF8F3;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(47, 42, 35, 0.1);
+}
+
+.offer__card img {
+  border: 3px solid var(--color-primary);
+  border-radius: 10px;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  margin-bottom: 1.2rem;
+}
+
+.offer__card h3 {
+  font-size: 1.4rem;
+  color: var(--color-accent);
+  margin-bottom: 0.8rem;
+}
+
+.offer__card p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.offer__card .offer__price {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin-bottom: 0;
 }
 
 /* ── FOOTER ── */
@@ -282,8 +353,7 @@ footer {
   padding: 3rem 1rem;
 }
 
-footer h4 {
-  font-family: 'Playfair Display', serif;
+footer h3 {
   font-size: 1.5rem;
   color: var(--color-primary);
   margin-bottom: 1rem;
@@ -297,34 +367,22 @@ footer p {
   opacity: 0.8;
 }
 
-.social__icons {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin: 1rem 0;
-}
-
-.social__icons span {
-  font-size: 1.3rem;
-  color: var(--color-primary);
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.social__icons span:hover {
-  color: var(--extra-light);
-}
-
 /* ── MEDIA QUERIES ── */
 @media (max-width: 900px) {
-  .journey__grid {
+  .journey__grid,
+  .offers__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
-  .journey__grid {
-    grid-template-columns: repeat(1, 1fr);
+  .journey__grid,
+  .offers__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section__container {
+    padding: 4rem 1.5rem;
   }
 
   .header__content h1 {
@@ -335,7 +393,11 @@ footer p {
     padding: 1rem 1.5rem;
   }
 
+  .nav__logo a {
+    font-size: 1.1rem;
+  }
+
   .nav__links {
-    display: none;
+    gap: 1rem;
   }
 }
